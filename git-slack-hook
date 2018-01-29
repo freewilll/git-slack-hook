@@ -248,7 +248,7 @@ function notify() {
     fi
 
   script=$(cat <<'EOF'
-    use JSON qw(encode_json);
+    use JSON;
 
     my @fields;
 
@@ -269,7 +269,7 @@ function notify() {
         "fields"    => \@fields,
     };
 
-    print encode_json($attachments);
+    print new JSON->encode($attachments);
 EOF
 )
 
